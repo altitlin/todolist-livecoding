@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
-export const SpanStyled = styled.span`
-  ${({ isdone }) => isdone && css`
+export const SpanStyled = styled.span<{ completed: boolean }>`
+  ${({ completed }) => completed && css`
     text-decoration: line-through;
   `}
 `
@@ -11,6 +11,11 @@ export const Item = styled.li`
   display: grid;
   grid-template-columns: 1fr repeat(2, max-content);
   column-gap: 10px;
+
+  & a {
+    text-decoration: none;
+    color: #000;
+  }
 `
 
 const Button = styled.button`
